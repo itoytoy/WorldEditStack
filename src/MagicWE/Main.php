@@ -39,7 +39,7 @@ use pocketmine\event\player\PlayerInteractEvent;
 class Main extends PluginBase implements Listener{
 	public $areas;
 	private $pos1 = [], $pos2 = [], $copy = [], $copypos = [], $undo = [], $redo = [], $wand = [], $schematics = [];
-	private static $MAX_BUILD_HEIGHT = 128;
+	private static $MAX_BUILD_HEIGHT = 256;
 
 	public function onLoad(){
 		$this->getLogger()->info(TextFormat::GREEN . "MagicWE has been loaded!");
@@ -52,6 +52,7 @@ class Main extends PluginBase implements Listener{
 		$this->getLogger()->info(TextFormat::GREEN . "MagicWE enabled!");
 	}
 
+	
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
 		if($sender instanceof Player){
 			switch($command){
@@ -443,7 +444,7 @@ class Main extends PluginBase implements Listener{
 				}
 			}
 		}
-		$player->sendMessage(TextFormat::GREEN . "[MagicWE] 复制成功, 输入//paste即可粘贴, 输入//stack 次数  即可延伸建筑往你面相的方向。");
+		$player->sendMessage(TextFormat::GREEN . "[MagicWE] 复制成功, 输入//paste即可粘贴, 输入//stack 次数  即可延伸建筑往你面向的方向。");
 	}
 
 	public function paste(Player $player){
